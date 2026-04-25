@@ -1,4 +1,5 @@
-import { Asul } from "next/font/google";
+import LeftSideBar from "@/Components/Home/News/LeftSideBar";
+import RightSideBar from "@/Components/Home/News/RightSideBar";
 
 
 const getCategories = async() => {
@@ -17,22 +18,8 @@ const Home = async () => {
       {/* --- Left Sidebar: All Categories --- */}
   <div className="col-span-3">
         <h2 className="font-bold text-xl mb-4 text-gray-800">All Category</h2>
+        <LeftSideBar categories={categories} activeId={'01'} />
         
-        <ul className="flex flex-col gap-2">
-          {categories.news_category.map((category, index) => {
-          
-            const isActive = index === 0; 
-
-            return (
-              <li 
-                key={category.category_id}
-                className={`px-4 py-3 rounded-lg cursor-pointer text-center font-medium transition-colors bg-gray-200 text-gray-900`}
-              >
-                {category.category_name}
-              </li>
-            );
-          })}
-        </ul>
   </div>
       {/* --- Main Content: All News --- */}
       <div className="bg-green-100 col-span-6 p-4 rounded-lg">
@@ -40,8 +27,8 @@ const Home = async () => {
       </div>
 
       {/* --- Right Sidebar: Social Icons --- */}
-      <div className="bg-yellow-100 col-span-3 p-4 rounded-lg">
-         Social Icons Here
+      <div className=" col-span-3  rounded-lg">
+        <RightSideBar/>
       </div>
 
     </div>
