@@ -15,15 +15,15 @@ const Header = () => {
   <Image
     src={headerLogo}
     alt="Header Logo"
-    className="mx-auto w-55 sm:w-65 md:w-[320px]"
+    className="mx-auto w-55 sm:w-65 md:w-105"
     priority
   />
 
-  <p className="text-gray-500 text-xs sm:text-sm mt-2">
+  <p className="text-gray-500 text-xs sm:text-[18px] mt-2">
     Journalism Without Fear or Favour
   </p>
 
-  <p className="text-gray-400 text-xs sm:text-[20px] mt-1">
+  <p className="text-gray-400 text-xs sm:text-[16px] mt-1">
     {formatted} 
   </p>
 </div>

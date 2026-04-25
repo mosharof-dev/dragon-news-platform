@@ -1,25 +1,24 @@
 import Image from 'next/image';
-import Link from 'next/link';
-
 import userlogo from '@/assets/user.png'
+import NavLink from './NavLink';
 
 const NavBar = () => {
 return (
-    <nav className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between py-4 gap-4 md:gap-0">
+    <nav className="container mx-auto flex flex-col md:flex-row items-center justify-between py-4 gap-4 md:gap-0">
       
-      {/* 1. Left side (Empty space to balance the right side and keep links centered) */}
+      {/* 1. Left side (Empty space to balance the right side and keep NavLinks centered) */}
       <div className="hidden md:block "></div>
 
-      {/* 2. Center: Navigation Links */}
+      {/* 2. Center: Navigation NavLinks */}
       <ul className="flex items-center gap-6 text-gray-600 font-medium text-lg">
         <li>
-          <Link href="/" className="hover:text-black transition-colors">Home</Link>
+          <NavLink href="/" className="hover:text-black transition-colors">Home</NavLink>
         </li>
         <li>
-          <Link href="/about" className="hover:text-black transition-colors">About</Link>
+          <NavLink href="/about" className="hover:text-black transition-colors">About</NavLink>
         </li>
         <li>
-          <Link href="/career" className="hover:text-black transition-colors">Career</Link>
+          <NavLink href="/career" className="hover:text-black transition-colors">Career</NavLink>
         </li>
       </ul>
 
