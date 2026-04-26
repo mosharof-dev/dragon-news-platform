@@ -1,4 +1,5 @@
 import LeftSideBar from "@/Components/Home/News/LeftSideBar";
+import NewsCard from "@/Components/Home/News/NewsCard";
 import RightSideBar from "@/Components/Home/News/RightSideBar";
 
 
@@ -34,15 +35,13 @@ const NewsCategoryPage = async({ params }) => {
         
   </div>
       {/* --- Main Content: All News --- */}
-      <div className="bg-green-100 col-span-6 p-4 rounded-lg">
-         All News Content Here
+      <div className="col-span-6 ">
+         
+         <h2 className="font-bold text-xl mb-4 text-gray-800">Dragon News Home</h2>
 {
-    news.length > 0 ?  news.map((n) => {
+    news.length > 0 ?  news.map((newsData) => {
     return (
-      <div key={n._id} className="p-2 rounded bg-red-300 m-4">
-      
-         <h2>{n.title}</h2>
-      </div>
+      <NewsCard key={newsData._id} newsData={newsData}  />
     ); 
   }): <h2>Not Found thi Page</h2>     
 }
