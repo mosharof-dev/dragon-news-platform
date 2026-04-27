@@ -12,7 +12,7 @@ const LeftSideBar = ({categories, activeId}) => {
             return (
               <li 
                 key={category.category_id}
-                className={`px-4 py-3 rounded-lg cursor-pointer text-center font-medium transition-colors  ${activeId === category.category_id && "bg-gray-200 text-gray-900" }`}
+                className={`px-4 py-3 rounded-lg cursor-pointer text-center font-medium transition-colors hover:bg-gray-200 text-gray-900  ${activeId === category.category_id && "bg-gray-200 text-gray-900" }`}
               >
                 <Link className='' href={`/category/${category.category_id}`}>{category.category_name}</Link>
               </li>

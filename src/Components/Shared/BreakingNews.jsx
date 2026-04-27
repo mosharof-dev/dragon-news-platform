@@ -18,7 +18,7 @@ const news = [
 
 const BreakingNews = () => {
 return (
-<div className="container mx-auto flex items-center gap-2 md:gap-4 p-2 md:p-4 bg-[#F3F3F3] rounded">
+<div className="max-w-7xl mx-auto flex items-center gap-2 md:gap-4 p-2 md:p-4 bg-[#F3F3F3] rounded">
   
   {/* shrink-0 ensures the button never gets squeezed on mobile */}
   <button className="btn btn-sm md:btn-md bg-[#D72050] text-white border-none shrink-0 rounded-sm">

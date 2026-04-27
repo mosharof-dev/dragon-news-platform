@@ -26,7 +26,7 @@ const NewsCategoryPage = async({ params }) => {
   
     
     return (
-        <div className="container mx-auto grid grid-cols-12 gap-6 mt-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-12 gap-6 mt-8">
       
       {/* --- Left Sidebar: All Categories --- */}
   <div className="col-span-3">

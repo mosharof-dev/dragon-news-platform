@@ -4,7 +4,7 @@ import NavLink from './NavLink';
 
 const NavBar = () => {
 return (
-    <nav className="container mx-auto flex flex-col md:flex-row items-center justify-between py-4 gap-4 md:gap-0">
+    <nav className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between py-4 gap-4 md:gap-0">
       
       {/* 1. Left side (Empty space to balance the right side and keep NavLinks centered) */}
       <div className="hidden md:block "></div>
