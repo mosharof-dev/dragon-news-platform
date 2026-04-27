@@ -1,10 +1,28 @@
-
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getNewsDetailById } from '../../category/[id]/page';
 import { IoArrowBackCircle } from 'react-icons/io5';
 
+export const generateMetadata = async ({ params }) => {
+    const { id } = await params; 
+    const newsData = await getNewsDetailById(id);
+    
+   
+    const news = Array.isArray(newsData) ? newsData[0] : newsData;
+
+   
+    if (!news) {
+        return {
+            title: 'News Not Found | The Dragon News',
+        }
+    }
+
+    return {
+        title: `${news.title} | The Dragon News`, 
+        description: news.details, 
+    }
+}
 const NewsDetailPage = async ({ params }) => {
     const { id } = await params; 
     
