@@ -6,7 +6,7 @@ import { IoEye } from 'react-icons/io5';
 
 export default function NewsCard({ newsData }) {
   // Destructuring the JSON data 
-  const { title, author, image_url, details, rating, total_view } = newsData;
+  const { title, author, image_url, details, rating, total_view, thumbnail_url } = newsData;
 
   // Formatting date if needed (Taking just the date part from "2022-08-24 17:27:34")
   const formattedDate = author?.published_date?.split(' ')[0];
@@ -18,7 +18,7 @@ export default function NewsCard({ newsData }) {
       <div className="flex justify-between items-center p-4 bg-gray-50 border-b border-gray-100">
         <div className="flex items-center gap-3">
           <Image 
-            src={author?.img} 
+            src={author.img} 
             // alt={author?.name} 
             alt={author?.name || "Author thumbnail"}
             width={40} 
@@ -47,9 +47,10 @@ export default function NewsCard({ newsData }) {
         <div className="relative w-full h-56 md:h-64 mb-4">
           <Image 
             src={image_url} 
-            // alt={author?.name} 
+           
             alt={author?.name || "Author thumbnail"}
-            fill 
+            fill
+            unoptimized={true}
             className="object-cover rounded-md" 
           />
         </div>
