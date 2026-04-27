@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import userlogo from '@/assets/user.png'
 import NavLink from './NavLink';
+import Link from 'next/link';
 
 const NavBar = () => {
 return (
@@ -32,9 +33,9 @@ return (
           height={40} 
           className="rounded-full cursor-pointer"
         />
-        <button className="bg-[#333333] text-white px-8 py-2 font-semibold hover:bg-black transition-colors">
+        <Link href="/login" className="bg-[#333333] text-white px-8 py-2 font-semibold hover:bg-black transition-colors">
           Login
-        </button>
+        </Link>
       </div>
       
     </nav>
