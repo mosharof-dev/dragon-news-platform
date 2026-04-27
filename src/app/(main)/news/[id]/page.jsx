@@ -41,45 +41,89 @@ const NewsDetailPage = async ({ params }) => {
     }
 
     return (
-        <div className=" max-w-7xl mx-auto p-4 md:p-6 border border-gray-200 rounded-md bg-white shadow-sm">
+        // <div className=" max-w-7xl mx-auto p-4 md:p-6 border border-gray-200 rounded-md bg-white shadow-sm">
             
-            {/* Image Section - SAFETY FIX 2 Applied */}
-            <div className="relative w-full h-62.5 md:h-100 mb-5 bg-gray-100 rounded-md overflow-hidden">
-                {news?.image_url ? (
-                    <Image
-                        src={news.image_url}
-                        alt={news?.title || 'News Details Image'}
-                        fill
-                        unoptimized={true}
-                        className="object-cover"
-                        priority
-                    />
-                ) : (
+        //     {/* Image Section - SAFETY FIX 2 Applied */}
+        //     <div className="relative w-full h-62.5 md:h-100 mb-5 bg-gray-100 rounded-md overflow-hidden">
+        //         {news?.image_url ? (
+        //             <Image
+        //                 src={news.image_url}
+        //                 alt={news?.title || 'News Details Image'}
+        //                 fill
+        //                 unoptimized={true}
+        //                 className="object-cover"
+        //                 priority
+        //             />
+        //         ) : (
                   
-                    <div className="flex items-center justify-center w-full h-full text-gray-400">
-                        No Image Available
-                    </div>
-                )}
+        //             <div className="flex items-center justify-center w-full h-full text-gray-400">
+        //                 No Image Available
+        //             </div>
+        //         )}
+        //     </div>
+
+        //     {/* Content Section */}
+        //     <h1 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight mb-4">
+        //         {news?.title}
+        //     </h1>
+
+        //     <p className="text-gray-600 leading-relaxed mb-8 text-justify">
+        //         {news?.details}
+        //     </p>
+
+        //     {/* Button Section */}
+        //     <Link 
+        //         href={`/category/${news?.category_id || ''}`} 
+        //         className="inline-flex items-center gap-2 bg-[#D72050] hover:bg-rose-700 text-white px-5 py-2.5 rounded text-sm font-medium transition-colors"
+        //     >
+        //         <IoArrowBackCircle className="w-5 h-5" />
+        //         All news in this category
+        //     </Link>
+
+        // </div>
+
+<div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 mt-6">
+            <div className="border border-gray-200 rounded-lg bg-white shadow-sm p-4 md:p-6">
+                
+                {/* Image Section - Fixed Height Issue */}
+                {/* aspect-video use korle automatically screen onujayi height adjust kore nibe */}
+                <div className="relative w-full aspect-video md:h-[400px] lg:h-[450px] mb-6 bg-gray-100 rounded-lg overflow-hidden">
+                    {news?.image_url ? (
+                        <Image
+                            src={news.image_url}
+                            alt={news?.title || 'News Details Image'}
+                            fill
+                            unoptimized={true}
+                            className="object-cover"
+                            priority
+                        />
+                    ) : (
+                        <div className="flex items-center justify-center w-full h-full text-gray-400">
+                            No Image Available
+                        </div>
+                    )}
+                </div>
+
+                {/* Content Section */}
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
+                    {news?.title}
+                </h1>
+
+                {/* Fixed Justify Issue for Mobile */}
+                <p className="text-gray-700 leading-relaxed mb-8 text-left md:text-justify text-base md:text-lg">
+                    {news?.details}
+                </p>
+
+                {/* Button Section */}
+                <Link 
+                    href={`/category/${news?.category_id || '01'}`} 
+                    className="inline-flex items-center gap-2 bg-[#D72050] hover:bg-rose-700 text-white px-5 py-2.5 rounded-md text-sm md:text-base font-medium transition-colors w-fit"
+                >
+                    <IoArrowBackCircle className="w-6 h-6" />
+                    All news in this category
+                </Link>
+
             </div>
-
-            {/* Content Section */}
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight mb-4">
-                {news?.title}
-            </h1>
-
-            <p className="text-gray-600 leading-relaxed mb-8 text-justify">
-                {news?.details}
-            </p>
-
-            {/* Button Section */}
-            <Link 
-                href={`/category/${news?.category_id || ''}`} 
-                className="inline-flex items-center gap-2 bg-[#D72050] hover:bg-rose-700 text-white px-5 py-2.5 rounded text-sm font-medium transition-colors"
-            >
-                <IoArrowBackCircle className="w-5 h-5" />
-                All news in this category
-            </Link>
-
         </div>
     );
 };

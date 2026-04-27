@@ -1,25 +1,34 @@
+
 import Link from 'next/link';
 import React from 'react';
 
 const LeftSideBar = ({categories, activeId}) => {
     return (
-        <div className=''>
-            <ul className="flex flex-col gap-2">
-          {categories.news_category.map((category, index) => {
-          
-           
+<div>
+<ul className="flex flex-col gap-2">
+  {categories.news_category.map((category) => {
+      
+      
+      const isActive = activeId === category.category_id;
 
-            return (
-              <li 
-                key={category.category_id}
-                className={`px-4 py-3 rounded-lg cursor-pointer text-center font-medium transition-colors hover:bg-gray-200 text-gray-900  ${activeId === category.category_id && "bg-gray-200 text-gray-900" }`}
+      return (
+          <li key={category.category_id}>
+              <Link 
+                  href={`/category/${category.category_id}`}
+                 
+                  className={`block px-4 py-3 rounded-lg text-center font-medium transition-colors ${
+                      isActive 
+                      ? "bg-gray-200 text-gray-900" 
+                      : "text-gray-600 hover:bg-gray-200 hover:text-gray-900"
+                  }`}
               >
-                <Link className='' href={`/category/${category.category_id}`}>{category.category_name}</Link>
-              </li>
-            );
-          })}
-        </ul>
-        </div>
+                  {category.category_name}
+              </Link>
+          </li>
+      );
+  })}
+</ul>
+</div>
     );
 };
 
