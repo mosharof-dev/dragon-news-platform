@@ -3,16 +3,7 @@ const nextConfig = {
   /* config options here */
   reactCompiler: true,
 
-  //  images: {
-  //   remotePatterns: [
-  //     {
-  //       protocol: 'https',
-  //       hostname: '**',
-  //       port: '',
-  //       pathname: '/**',
-  //     },
-  //   ],
-  // },
+
   images: {
     remotePatterns: [
       {
@@ -22,7 +13,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'i.ibb.co',
-      }
+      },
+        {
+        protocol: 'https',
+        hostname: '**',
+      },
     ],
   },
 };

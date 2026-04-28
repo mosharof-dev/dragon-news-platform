@@ -7,7 +7,7 @@ import { BsEyeSlash } from "react-icons/bs";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
-import { redirect } from "next/dist/server/api-utils";
+
 
 
 export default function RegisterPage() {
@@ -22,7 +22,7 @@ const handleRegister = async(data) => {
       name: data.name,
       email: data.email,
       password: data.password, 
-  
+      image: data.photoURL,
       callbackURL: "/login",
     });
   
