@@ -6,6 +6,7 @@ import { CgEye } from "react-icons/cg";
 import { BsEyeSlash } from "react-icons/bs";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { authClient } from "@/lib/auth-client";
 
 export default function LoginPage() {
 
@@ -13,16 +14,32 @@ const { register, handleSubmit } = useForm()
 
 const [isVisible, setIsVisible] = useState(false);
 
-const handleLogin = (data) => {
-
-    console.log(data, "Email and PassWord");
-  
-
-    // const formData = new FormData(e.currentTarget);
- 
+const handleLogin = async (data) => {
+    console.log("Trying to login with:", data.email);
+    
+    
+    const { data: res, error } = await authClient.signIn.email({
+      email: data.email,
+      password: data.password,
+      rememberMe: true,
+    callbackURL: "/",
+    });
+    
+    // Login er Conditions 
+    if (error) {
+      
+      alert(`Login Failed: ${error.message || "Invalid credentials!"}`);
+      console.log("Login Error:", error);
+    } 
+    else if (res) {
+      // Login success hole
+      alert("Welcome back! Login Successful. 🎉");
+    
+    }
   };
 
-  return (
+
+return (
     
     
 <div className="min-h-screen flex items-center justify-center bg-[#f3f4f6] px-4">
