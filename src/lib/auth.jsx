@@ -1,8 +1,7 @@
 import dns from "node:dns";
 
-// Suffix e 's' thakbe
-dns.setServers(['8.8.8.8', '8.8.4.4']);
 
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 import { betterAuth } from "better-auth";
@@ -23,4 +22,15 @@ emailAndPassword: {
     // Optional: if you don't provide a client, database transactions won't be enabled.
     client
   }),
+   socialProviders: {
+        google: { 
+            clientId: process.env.GOOGLE_CLIENT_ID , 
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET , 
+        },  
+        github: { 
+            clientId: process.env.GITHUB_CLIENT_ID , 
+            clientSecret: process.env.GITHUB_CLIENT_SECRET , 
+        }, 
+    },
+    
 });

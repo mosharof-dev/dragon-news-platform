@@ -1,12 +1,26 @@
-
+"use client"
 import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import Image from 'next/image'; 
 import logo from '@/assets/swimming.png'
 import logoA from '@/assets/class.png'
 import logoB from '@/assets/playground.png'
 import bg from '@/assets/bg.png'
+import { authClient } from '@/lib/auth-client';
+import { da } from 'date-fns/locale';
 
 const RightSideBar = () => {
+  const loginWithGoogle = async() =>{
+    const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  console.log(data, 'data');
+  }
+const loginWithGithub = async() => {
+    const data = await authClient.signIn.social({
+        provider: "github"
+    });
+    console.log(data, 'data');
+}
   return (
     <div className="flex flex-col gap-8">
       
@@ -14,11 +28,15 @@ const RightSideBar = () => {
       <div>
         <h2 className="font-bold text-lg mb-4 text-gray-800">Login With</h2>
         <div className="flex flex-col gap-2">
-          <button className="flex items-center justify-center gap-2 w-full border border-blue-400 rounded-md py-2 text-blue-500 hover:bg-blue-50 transition-colors">
+          <button
+          onClick={loginWithGoogle}
+           className="flex items-center justify-center gap-2 w-full border border-blue-400 rounded-md py-2 text-blue-500 hover:bg-blue-50 transition-colors">
             <FaGoogle />
             Login with Google
           </button>
-          <button className="flex items-center justify-center gap-2 w-full border border-gray-800 rounded-md py-2 text-gray-800 hover:bg-gray-100 transition-colors">
+          <button 
+          onClick={loginWithGithub}
+          className="flex items-center justify-center gap-2 w-full border border-gray-800 rounded-md py-2 text-gray-800 hover:bg-gray-100 transition-colors">
             <FaGithub />
             Login with Github
           </button>
@@ -28,7 +46,7 @@ const RightSideBar = () => {
       {/* --- 2. Find Us On Section --- */}
       <div>
         <h2 className="font-bold text-lg mb-4 text-gray-800">Find Us On</h2>
-        {/* Parent e ekta border diyechi, ar bhetorer gulo te shudhu border-bottom */}
+       
         <div className="flex flex-col border border-gray-300 rounded-md overflow-hidden">
           <a href="#" className="flex items-center gap-3 p-4 border-b border-gray-300 hover:bg-gray-200 transition-colors">
             <div className="bg-gray-100 p-2 rounded-full text-blue-600">
