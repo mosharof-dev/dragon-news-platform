@@ -7,6 +7,7 @@ import { BsEyeSlash } from "react-icons/bs";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
 
 
 
@@ -31,12 +32,12 @@ const handleRegister = async(data) => {
 
     if (error) {
      
-      alert(`Registration Failed: ${error.message || "Something went wrong!"}`);
+      toast.error(`Registration Failed: ${error.message || "Something went wrong!"}`);
       console.log("Error details:", error);
     } 
     if (res) {
       
-      alert("Registration Successful! 🎉 Please login to continue.");
+      toast.success("Registration Successful! 🎉 Please login to continue.");
       
      
     }

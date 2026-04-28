@@ -7,6 +7,7 @@ import { BsEyeSlash } from "react-icons/bs";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
 
 export default function LoginPage() {
 
@@ -28,12 +29,12 @@ const handleLogin = async (data) => {
     // Login er Conditions 
     if (error) {
       
-      alert(`Login Failed: ${error.message || "Invalid credentials!"}`);
+      toast.error(`Login Failed: ${error.message || "Invalid credentials!"}`);
       console.log("Login Error:", error);
     } 
     else if (res) {
       // Login success hole
-      alert("Welcome back! Login Successful. 🎉");
+      toast.success("Welcome back! Login Successful. 🎉");
     
     }
   };

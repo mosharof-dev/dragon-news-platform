@@ -1,7 +1,31 @@
+import dns from "node:dns";
+
+
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
 import { NextResponse } from "next/server";
+import { auth } from "./lib/auth"; 
 
+export async function proxy(request) {
+  
+  // 1. Direct request object theke headers pass  (Optimized)
+  const session = await auth.api.getSession({
+      headers: request.headers 
+  });
+  
+  console.log("Middleware Session Check:", session);
 
+  // 2. Hardcoded 
 
-export function proxy(request) {
-  return NextResponse.redirect(new URL('/home', request.url))
+  if (!session) {
+      return NextResponse.redirect(new URL('/login', request.url));
+  }
+
+  // 3. Jodi session  (user logged in), 
+  return NextResponse.next();
+}
+
+// Config s
+export const config = {
+  matcher: ['/career', '/news/:path'], 
 }
